@@ -45,10 +45,10 @@ export default function Home() {
   return (
     <div>
       <header className="w-full py-5 mb-10 border-b border-b-gray-300 flex justify-center">
-        <h1>Dessert Recomendation Powered by AI </h1>
+        <h1>Dessert Recomendation Powered by AI 🤖 </h1>
       </header>
       <div className="space-y-10 container mx-auto md:max-w-4xl max-w-2xl border p-10 mb-10  rounded-lg">
-        <h1>Pilih Bahan Dessert</h1>
+        <h1 className="text-xl">Pilih Bahan Dessert 🍰</h1>
         <DropdownComponent
           selectedIngredients={selectedIngredients}
           onIngredientsChange={setSelectedIngredients}
@@ -66,7 +66,7 @@ export default function Home() {
               <span className="ml-2">Generating...</span>
             </span>
           ) : (
-            "Generate Recipe"
+            "✨Buat Resep Sekarang"
           )}
         </button>
       </div>
@@ -85,7 +85,8 @@ export default function Home() {
                 {data.result.ingredients.map((ing, idx) => (
                   <div key={idx}>
                     <li>
-                      {ing.quantity} {ing.item} , {ing.note}
+                      {ing.quantity} {ing.item} {ing.unit}{" "}
+                      {ing.note && `, ${ing.note}`}
                     </li>
                   </div>
                 ))}
